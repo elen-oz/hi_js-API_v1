@@ -96,9 +96,10 @@ a:hover {
 
 .card__title {
   margin: 0 auto;
-  /* max-width: 60%; */
+  padding: 2rem 3rem;
+  font-size: 2rem;
   margin-top: 2rem;
-  padding: 2rem 0;
+
   text-align: center;
   color: cornflowerblue;
 }

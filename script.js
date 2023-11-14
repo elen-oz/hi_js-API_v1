@@ -11,7 +11,7 @@ wrapperEl.append(contentEl);
 
 const titleEl = document.createElement('h1');
 titleEl.classList.add('title');
-titleEl.textContent = '100 Best Movies';
+titleEl.textContent = 'Trending Movies & Best Series';
 contentEl.prepend(titleEl);
 
 const btnContainerEl = document.createElement('div');
@@ -20,12 +20,12 @@ contentEl.append(btnContainerEl);
 
 const movieBtnEl = document.createElement('button');
 movieBtnEl.classList.add('btn');
-movieBtnEl.textContent = 'Top Movies List';
+movieBtnEl.textContent = 'Show Movies';
 btnContainerEl.append(movieBtnEl);
 
 const seriesBtnEl = document.createElement('button');
 seriesBtnEl.classList.add('btn');
-seriesBtnEl.textContent = 'Top Series List';
+seriesBtnEl.textContent = 'Show Series';
 btnContainerEl.append(seriesBtnEl);
 
 const displayData = (data) => {
@@ -72,14 +72,14 @@ const displayData = (data) => {
 
     const ratingEl = document.createElement('div');
     ratingEl.classList.add('card__rating');
-    ratingEl.textContent = item.vote_average;
+
+    ratingEl.textContent = item.vote_average.toFixed(1);
     addInfoEl.append(ratingEl);
 
     const dateEl = document.createElement('div');
     dateEl.classList.add('card__date');
-    dateEl.textContent = `Release date:\n${
-      item.first_air_date ?? item.release_date
-    }`;
+    let date = item.first_air_date ?? item.release_date;
+    dateEl.textContent = `Release date:\n${date}`;
     addInfoEl.append(dateEl);
 
     const descriptionEl = document.createElement('div');
