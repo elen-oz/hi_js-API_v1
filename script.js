@@ -19,10 +19,10 @@ movieBtnEl.classList.add('btn');
 movieBtnEl.textContent = 'Top Movies List';
 contentEl.append(movieBtnEl);
 
-// const seriesBtnEl = document.createElement('button');
-// seriesBtnEl.classList.add('btn');
-// seriesBtnEl.textContent = 'Top Series List';
-// contentEl.append(seriesBtnEl);
+const seriesBtnEl = document.createElement('button');
+seriesBtnEl.classList.add('btn');
+seriesBtnEl.textContent = 'Top Series List';
+contentEl.append(seriesBtnEl);
 
 const displayData = (data) => {
   data.map((item) => {
@@ -39,15 +39,17 @@ const displayData = (data) => {
     overlayEl.style.backgroundRepeat = 'no-repeat';
     overlayEl.style.backgroundSize = 'cover';
     overlayEl.style.opacity = 0.5;
+    overlayEl.style.filter = 'blur(3px)';
 
     cardEl.prepend(overlayEl);
 
     const cardTitleEl = document.createElement('h2');
     cardTitleEl.classList.add('card__title');
-    cardTitleEl.textContent = `${item.original_title} ${item.release_date.slice(
-      0,
-      4
-    )}`;
+    // cardTitleEl.textContent = `${item.original_title} ${item.release_date.slice(
+    //   0,
+    //   4
+    // )}`;
+    cardTitleEl.textContent = `${item.title ?? item.name}`;
     cardEl.append(cardTitleEl);
 
     const cardContentEl = document.createElement('div');
@@ -70,8 +72,16 @@ const displayData = (data) => {
     descriptionEl.textContent = item.overview;
     infoEl.append(descriptionEl);
 
-    // rating
-    // year
+    const ratingEl = document.createElement('div');
+    ratingEl.classList.add('card__rating');
+    ratingEl.textContent = item.vote_average;
+    infoEl.append(ratingEl);
+
+    // https://www.themoviedb.org/tv/1396-breaking-bad
+    // https://www.themoviedb.org/tv/94605-arcane
+
+    // rating --> vote_average
+    // release_date / first_air_date
     // link
     //
   });
@@ -117,6 +127,18 @@ const getData = async (data) => {
 //   },
 // };
 
+const seriesData = {
+  url: 'https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=1',
+  options: {
+    method: 'GET',
+    headers: {
+      accept: 'application/json',
+      Authorization:
+        'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlZGYyYWY5Y2M0NzQ3OWUyODA0MzhiOTYxMDZlYjc4ZSIsInN1YiI6IjY1NTNhNzM4ZDRmZTA0MDBmZTA1NGRjZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.0NgS-Aalu5BLS31sz7wB4oHA6ht_SQS4-65HRmdpeB0',
+    },
+  },
+};
+
 const moviesData = {
   url: 'https://api.themoviedb.org/3/trending/movie/day?language=en-US',
   options: {
@@ -140,6 +162,6 @@ movieBtnEl.addEventListener('click', () => {
   getData(moviesData);
 });
 
-// seriesBtnEl.addEventListener('click', () => {
-//   getData(seriesData);
-// });
+seriesBtnEl.addEventListener('click', () => {
+  getData(seriesData);
+});

@@ -16,14 +16,10 @@ img {
 .wrapper {
   margin: 0 auto;
   max-width: 900px;
-
-  border: 2px dotted salmon;
 }
 
 .content {
   margin: 0 auto;
-
-  border: 2px dotted blue;
 }
 
 .title {
@@ -49,16 +45,17 @@ img {
 }
 
 .content {
-  padding: 0 2rem;
+  padding: 3rem 2rem 0;
   z-index: 1;
 }
+/* .content:first-child {
+  margin-top: 3rem;
+} */
 
 .card {
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
   position: relative;
   z-index: 10;
-  border: 2px dotted green;
-  /* background-color: rgba(0, 0, 0, 0.9); */
 }
 
 .overlay {
@@ -76,7 +73,10 @@ img {
 }
 
 .card__title {
-  margin: 1rem;
+  margin: 0 auto;
+  /* max-width: 60%; */
+  margin-top: 2rem;
+  padding: 2rem 0;
   text-align: center;
   color: cornflowerblue;
 }
@@ -85,6 +85,16 @@ img {
 }
 
 .card__info {
-  color: darkgray;
+  color: lightgray;
   z-index: 10;
+}
+
+.card__rating {
+  display: inline-block;
+  margin: 0.5rem;
+  padding: 0.1rem 0.3rem;
+  color: gold;
+  font-size: large;
+  font-weight: 900;
+  border: 2px solid gold;
 }
