@@ -14,15 +14,19 @@ titleEl.classList.add('title');
 titleEl.textContent = '100 Best Movies';
 contentEl.prepend(titleEl);
 
+const btnContainerEl = document.createElement('div');
+btnContainerEl.classList.add('btn-container');
+contentEl.append(btnContainerEl);
+
 const movieBtnEl = document.createElement('button');
 movieBtnEl.classList.add('btn');
 movieBtnEl.textContent = 'Top Movies List';
-contentEl.append(movieBtnEl);
+btnContainerEl.append(movieBtnEl);
 
 const seriesBtnEl = document.createElement('button');
 seriesBtnEl.classList.add('btn');
 seriesBtnEl.textContent = 'Top Series List';
-contentEl.append(seriesBtnEl);
+btnContainerEl.append(seriesBtnEl);
 
 const displayData = (data) => {
   data.map((item) => {
@@ -33,24 +37,18 @@ const displayData = (data) => {
 
     const overlayEl = document.createElement('div');
     overlayEl.classList.add('overlay');
-
     overlayEl.style.background = `url('https://image.tmdb.org/t/p/w500${item.backdrop_path}')`;
     overlayEl.style.backgroundPosition = 'top';
     overlayEl.style.backgroundRepeat = 'no-repeat';
     overlayEl.style.backgroundSize = 'cover';
     overlayEl.style.opacity = 0.5;
     overlayEl.style.filter = 'blur(3px)';
-
     cardEl.prepend(overlayEl);
 
     const cardTitleEl = document.createElement('h2');
     cardTitleEl.classList.add('card__title');
-    // cardTitleEl.textContent = `${item.original_title} ${item.release_date.slice(
-    //   0,
-    //   4
-    // )}`;
     cardTitleEl.textContent = `${item.title ?? item.name}`;
-    cardEl.append(cardTitleEl);
+    cardEl.prepend(cardTitleEl);
 
     const cardContentEl = document.createElement('div');
     cardContentEl.classList.add('card__content');
@@ -67,23 +65,40 @@ const displayData = (data) => {
     infoEl.classList.add('card__info');
     cardContentEl.append(infoEl);
 
+    // ---
+    const addInfoEl = document.createElement('div');
+    addInfoEl.classList.add('addition-info');
+    infoEl.append(addInfoEl);
+
+    const ratingEl = document.createElement('div');
+    ratingEl.classList.add('card__rating');
+    ratingEl.textContent = item.vote_average;
+    addInfoEl.append(ratingEl);
+
+    const dateEl = document.createElement('div');
+    dateEl.classList.add('card__date');
+    dateEl.textContent = `Release date:\n${
+      item.first_air_date ?? item.release_date
+    }`;
+    addInfoEl.append(dateEl);
+
     const descriptionEl = document.createElement('div');
     descriptionEl.classList.add('card__description');
     descriptionEl.textContent = item.overview;
     infoEl.append(descriptionEl);
 
-    const ratingEl = document.createElement('div');
-    ratingEl.classList.add('card__rating');
-    ratingEl.textContent = item.vote_average;
-    infoEl.append(ratingEl);
-
-    // https://www.themoviedb.org/tv/1396-breaking-bad
-    // https://www.themoviedb.org/tv/94605-arcane
-
-    // rating --> vote_average
-    // release_date / first_air_date
-    // link
-    //
+    const linkEl = document.createElement('a');
+    linkEl.classList.add('card__link');
+    let link;
+    if (item.title) {
+      link = item.title.split(' ').join('-');
+    } else if (item.name) {
+      link = item.name.split(' ').join('-');
+    }
+    linkEl.href = `https://www.themoviedb.org/tv/${item.id}-${link}`;
+    linkEl.textContent = 'See More...';
+    linkEl.target = '_blanc';
+    infoEl.append(linkEl);
   });
 };
 

@@ -13,6 +13,15 @@ img {
   display: block;
 }
 
+a {
+  color: cornflowerblue;
+  text-decoration: none;
+}
+a:hover {
+  color: inherit;
+  text-decoration: underline;
+}
+
 .wrapper {
   margin: 0 auto;
   max-width: 900px;
@@ -28,12 +37,23 @@ img {
   color: darkslateblue;
 }
 
+.btn-container {
+  margin: 0 auto;
+  padding: 1rem 0;
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .btn {
+  font-size: 1.1rem;
+  text-transform: uppercase;
   display: block;
   margin: 0 auto;
   border: none;
   border-radius: 4px;
-  padding: 0.5rem 1rem;
+  padding: 1rem 1.3rem;
 }
 
 .btn:hover {
@@ -62,6 +82,8 @@ img {
   width: 100%;
   height: 100%;
   position: absolute;
+  top: 0;
+  left: 0;
   z-index: 1;
 }
 
@@ -87,6 +109,20 @@ img {
 .card__info {
   color: lightgray;
   z-index: 10;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.addition-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card__description {
+  padding-right: 2rem;
+  /* padding-bottom: 130px; */
 }
 
 .card__rating {
@@ -97,4 +133,12 @@ img {
   font-size: large;
   font-weight: 900;
   border: 2px solid gold;
+}
+
+.card__date {
+  width: 7.5rem;
+}
+.card__link {
+  padding: 2rem;
+  align-self: flex-end;
 }
