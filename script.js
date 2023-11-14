@@ -5,18 +5,20 @@ const wrapperEl = document.createElement('div');
 wrapperEl.classList.add('wrapper');
 appEl.prepend(wrapperEl);
 
-const contentEl = document.createElement('div');
-contentEl.classList.add('content');
-wrapperEl.append(contentEl);
-
+//*----
 const titleEl = document.createElement('h1');
 titleEl.classList.add('title');
 titleEl.textContent = 'Trending Movies & Best Series';
-contentEl.prepend(titleEl);
+wrapperEl.prepend(titleEl);
 
 const btnContainerEl = document.createElement('div');
 btnContainerEl.classList.add('btn-container');
-contentEl.append(btnContainerEl);
+wrapperEl.append(btnContainerEl);
+//*----
+
+const contentEl = document.createElement('div');
+contentEl.classList.add('content');
+wrapperEl.append(contentEl);
 
 const movieBtnEl = document.createElement('button');
 movieBtnEl.classList.add('btn');
@@ -29,10 +31,10 @@ seriesBtnEl.textContent = 'Show Series';
 btnContainerEl.append(seriesBtnEl);
 
 const displayData = (data) => {
+  contentEl.innerHTML = '';
   data.map((item) => {
     const cardEl = document.createElement('div');
     cardEl.classList.add('card');
-
     contentEl.append(cardEl);
 
     const overlayEl = document.createElement('div');
@@ -109,7 +111,7 @@ const getData = async (data) => {
     const response = await fetch(url, options);
     const result = await response.json();
 
-    console.log(result.results);
+    // console.log(result.results);
 
     localStorage.setItem('url', JSON.stringify(url));
     localStorage.setItem('options', JSON.stringify(options));
