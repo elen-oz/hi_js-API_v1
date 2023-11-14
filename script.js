@@ -33,12 +33,12 @@ const displayData = (data) => {
 
     const overlayEl = document.createElement('div');
     overlayEl.classList.add('overlay');
-    // overlayEl.style = `background: no-repeat top url('https://image.tmdb.org/t/p/w500${item.backdrop_path}')`;
 
     overlayEl.style.background = `url('https://image.tmdb.org/t/p/w500${item.backdrop_path}')`;
     overlayEl.style.backgroundPosition = 'top';
     overlayEl.style.backgroundRepeat = 'no-repeat';
-    overlayEl.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+    overlayEl.style.backgroundSize = 'cover';
+    // overlayEl.style.backgroundColor = 'rgba(0, 0, 0, 0.9)';
 
     cardEl.prepend(overlayEl);
 
