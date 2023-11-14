@@ -5,8 +5,8 @@
 }
 body {
   height: 100vh;
-
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: black;
 }
 
 img {
@@ -49,34 +49,24 @@ img {
 }
 
 .content {
-  background-color: rgba(0, 0, 0, 0.8);
+  padding: 0 2rem;
   z-index: 1;
 }
 
 .card {
+  margin-bottom: 2rem;
   position: relative;
   z-index: 10;
   border: 2px dotted green;
+  /* background-color: rgba(0, 0, 0, 0.9); */
 }
 
 .overlay {
   width: 100%;
   height: 100%;
   position: absolute;
-  /* background-color: rgba(0, 0, 0, 0.9); */
-  opacity: 0.3;
   z-index: 1;
 }
-/* .overlay:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.5);
-  z-index: 1;
-} */
 
 .card__content {
   display: flex;
@@ -89,12 +79,12 @@ img {
   margin: 1rem;
   text-align: center;
   color: cornflowerblue;
-  /* z-index: 2; */
 }
 .card__image {
   z-index: 10;
 }
 
 .card__info {
+  color: darkgray;
   z-index: 10;
 }

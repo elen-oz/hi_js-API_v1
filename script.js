@@ -28,7 +28,7 @@ const displayData = (data) => {
   data.map((item) => {
     const cardEl = document.createElement('div');
     cardEl.classList.add('card');
-    // cardEl.style = `background: no-repeat top url('https://image.tmdb.org/t/p/w500${item.backdrop_path}')`;
+
     contentEl.append(cardEl);
 
     const overlayEl = document.createElement('div');
@@ -38,7 +38,7 @@ const displayData = (data) => {
     overlayEl.style.backgroundPosition = 'top';
     overlayEl.style.backgroundRepeat = 'no-repeat';
     overlayEl.style.backgroundSize = 'cover';
-    // overlayEl.style.backgroundColor = 'rgba(0, 0, 0, 0.9)';
+    overlayEl.style.opacity = 0.5;
 
     cardEl.prepend(overlayEl);
 
@@ -48,7 +48,7 @@ const displayData = (data) => {
       0,
       4
     )}`;
-    cardEl.prepend(cardTitleEl);
+    cardEl.append(cardTitleEl);
 
     const cardContentEl = document.createElement('div');
     cardContentEl.classList.add('card__content');
@@ -60,13 +60,6 @@ const displayData = (data) => {
     imageEl.style.width = '300px';
     imageEl.style.objectFit = 'cover';
     cardContentEl.append(imageEl);
-
-    // const imageBackgroundEl = document.createElement('img');
-    // imageBackgroundEl.classList.add('card__image');
-    // imageBackgroundEl.src = `https://image.tmdb.org/t/p/w500${item.backdrop_path}`;
-    // imageBackgroundEl.style.width = '500px';
-    // imageBackgroundEl.style.objectFit = 'cover';
-    // cardContentEl.append(imageBackgroundEl);
 
     const infoEl = document.createElement('div');
     infoEl.classList.add('card__info');
