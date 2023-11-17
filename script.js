@@ -5,20 +5,28 @@ const wrapperEl = document.createElement('div');
 wrapperEl.classList.add('wrapper');
 appEl.prepend(wrapperEl);
 
-//*----
+const mainEl = document.createElement('div');
+mainEl.classList.add('main');
+wrapperEl.append(mainEl);
+
 const titleEl = document.createElement('h1');
 titleEl.classList.add('title');
 titleEl.textContent = 'Trending Movies & Best Series';
-wrapperEl.prepend(titleEl);
+mainEl.prepend(titleEl);
 
 const btnContainerEl = document.createElement('div');
 btnContainerEl.classList.add('btn-container');
-wrapperEl.append(btnContainerEl);
-//*----
+mainEl.append(btnContainerEl);
 
 const contentEl = document.createElement('div');
 contentEl.classList.add('content');
-wrapperEl.append(contentEl);
+mainEl.append(contentEl);
+
+const footerEl = document.createElement('div');
+footerEl.classList.add('footer');
+footerEl.innerHTML =
+  'Made by <a href="https://github.com/elen-oz">Me</a> and <a href="https://github.com/elen-oz/hi_js-API_v1"> here is this project on GitHub</a>';
+wrapperEl.append(footerEl);
 
 const movieBtnEl = document.createElement('button');
 movieBtnEl.classList.add('btn');
