@@ -1,13 +1,10 @@
 'use strict';
 
-// todo: add clean button
-
 const appEl = document.querySelector('#app');
 const wrapperEl = document.createElement('div');
 wrapperEl.classList.add('wrapper');
 appEl.prepend(wrapperEl);
 
-//*----
 const titleEl = document.createElement('h1');
 titleEl.classList.add('title');
 titleEl.textContent = 'Trending Movies & Best Series';
@@ -16,7 +13,6 @@ wrapperEl.prepend(titleEl);
 const btnContainerEl = document.createElement('div');
 btnContainerEl.classList.add('btn-container');
 wrapperEl.append(btnContainerEl);
-//*----
 
 const contentEl = document.createElement('div');
 contentEl.classList.add('content');
@@ -69,7 +65,6 @@ const displayData = (data) => {
     infoEl.classList.add('card__info');
     cardContentEl.append(infoEl);
 
-    // ---
     const addInfoEl = document.createElement('div');
     addInfoEl.classList.add('addition-info');
     infoEl.append(addInfoEl);
@@ -113,8 +108,6 @@ const getData = async (data) => {
     const response = await fetch(url, options);
     const result = await response.json();
 
-    // console.log(result.results);
-
     localStorage.setItem('url', JSON.stringify(url));
     localStorage.setItem('options', JSON.stringify(options));
 
@@ -124,35 +117,13 @@ const getData = async (data) => {
   }
 };
 
-// const moviesData = {
-//   url: 'https://imdb-top-100-movies.p.rapidapi.com/',
-//   options: {
-//     method: 'GET',
-//     headers: {
-//       'X-RapidAPI-Key': 'e95c198ddemsh44ab3f49c84f874p1e97fejsn1b270adaf5ec',
-//       'X-RapidAPI-Host': 'imdb-top-100-movies.p.rapidapi.com',
-//     },
-//   },
-// };
-
-// const seriesData = {
-//   url: 'https://imdb-top-100-movies.p.rapidapi.com/series/',
-//   options: {
-//     method: 'GET',
-//     headers: {
-//       'X-RapidAPI-Key': 'e95c198ddemsh44ab3f49c84f874p1e97fejsn1b270adaf5ec',
-//       'X-RapidAPI-Host': 'imdb-top-100-movies.p.rapidapi.com',
-//     },
-//   },
-// };
-
 const seriesData = {
   url: 'https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=1',
   options: {
     method: 'GET',
     headers: {
       accept: 'application/json',
-      Authorization: `Bearer ${apiKey}`,
+      Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlZGYyYWY5Y2M0NzQ3OWUyODA0MzhiOTYxMDZlYjc4ZSIsInN1YiI6IjY1NTNhNzM4ZDRmZTA0MDBmZTA1NGRjZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.0NgS-Aalu5BLS31sz7wB4oHA6ht_SQS4-65HRmdpeB0`,
     },
   },
 };
@@ -163,7 +134,7 @@ const moviesData = {
     method: 'GET',
     headers: {
       accept: 'application/json',
-      Authorization: `Bearer ${apiKey}`,
+      Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlZGYyYWY5Y2M0NzQ3OWUyODA0MzhiOTYxMDZlYjc4ZSIsInN1YiI6IjY1NTNhNzM4ZDRmZTA0MDBmZTA1NGRjZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.0NgS-Aalu5BLS31sz7wB4oHA6ht_SQS4-65HRmdpeB0`,
     },
   },
 };
