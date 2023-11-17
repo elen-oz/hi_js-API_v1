@@ -1,5 +1,6 @@
 'use strict';
-import { apiKey } from './apiKey.js';
+
+// todo: add clean button
 
 const appEl = document.querySelector('#app');
 const wrapperEl = document.createElement('div');
@@ -25,12 +26,6 @@ const movieBtnEl = document.createElement('button');
 movieBtnEl.classList.add('btn');
 movieBtnEl.textContent = 'Show Movies';
 btnContainerEl.append(movieBtnEl);
-
-const clearBtnEl = document.createElement('button');
-clearBtnEl.classList.add('btn');
-clearBtnEl.classList.add('btn--clear');
-clearBtnEl.textContent = 'Clear';
-btnContainerEl.append(clearBtnEl);
 
 const seriesBtnEl = document.createElement('button');
 seriesBtnEl.classList.add('btn');
@@ -128,6 +123,28 @@ const getData = async (data) => {
     console.error(error);
   }
 };
+
+// const moviesData = {
+//   url: 'https://imdb-top-100-movies.p.rapidapi.com/',
+//   options: {
+//     method: 'GET',
+//     headers: {
+//       'X-RapidAPI-Key': 'e95c198ddemsh44ab3f49c84f874p1e97fejsn1b270adaf5ec',
+//       'X-RapidAPI-Host': 'imdb-top-100-movies.p.rapidapi.com',
+//     },
+//   },
+// };
+
+// const seriesData = {
+//   url: 'https://imdb-top-100-movies.p.rapidapi.com/series/',
+//   options: {
+//     method: 'GET',
+//     headers: {
+//       'X-RapidAPI-Key': 'e95c198ddemsh44ab3f49c84f874p1e97fejsn1b270adaf5ec',
+//       'X-RapidAPI-Host': 'imdb-top-100-movies.p.rapidapi.com',
+//     },
+//   },
+// };
 
 const seriesData = {
   url: 'https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=1',
