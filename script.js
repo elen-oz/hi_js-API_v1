@@ -25,7 +25,7 @@ mainEl.append(contentEl);
 const footerEl = document.createElement('div');
 footerEl.classList.add('footer');
 footerEl.innerHTML =
-  'Made by <a href="https://github.com/elen-oz">Me</a> and <a href="https://github.com/elen-oz/hi_js-API_v1"> here is this project on GitHub</a>';
+  'Made by <a href="https://github.com/elen-oz" target="_blanc">Me</a> and <a href="https://github.com/elen-oz/hi_js-API_v1" target="_blanc"> here is this project on GitHub</a>';
 wrapperEl.append(footerEl);
 
 const movieBtnEl = document.createElement('button');
