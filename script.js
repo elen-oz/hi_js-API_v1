@@ -165,3 +165,7 @@ movieBtnEl.addEventListener('click', () => {
 seriesBtnEl.addEventListener('click', () => {
   getData(seriesData);
 });
+
+clearBtnEl.addEventListener('click', () => {
+  contentEl.innerHTML = '';
+});
