@@ -5,6 +5,7 @@ const wrapperEl = document.createElement('div');
 wrapperEl.classList.add('wrapper');
 appEl.prepend(wrapperEl);
 
+//*----
 const titleEl = document.createElement('h1');
 titleEl.classList.add('title');
 titleEl.textContent = 'Trending Movies & Best Series';
@@ -13,6 +14,7 @@ wrapperEl.prepend(titleEl);
 const btnContainerEl = document.createElement('div');
 btnContainerEl.classList.add('btn-container');
 wrapperEl.append(btnContainerEl);
+//*----
 
 const contentEl = document.createElement('div');
 contentEl.classList.add('content');
@@ -22,6 +24,12 @@ const movieBtnEl = document.createElement('button');
 movieBtnEl.classList.add('btn');
 movieBtnEl.textContent = 'Show Movies';
 btnContainerEl.append(movieBtnEl);
+
+const clearBtnEl = document.createElement('button');
+clearBtnEl.classList.add('btn');
+clearBtnEl.classList.add('btn--clear');
+clearBtnEl.textContent = 'Clear';
+btnContainerEl.append(clearBtnEl);
 
 const seriesBtnEl = document.createElement('button');
 seriesBtnEl.classList.add('btn');
@@ -65,6 +73,7 @@ const displayData = (data) => {
     infoEl.classList.add('card__info');
     cardContentEl.append(infoEl);
 
+    // ---
     const addInfoEl = document.createElement('div');
     addInfoEl.classList.add('addition-info');
     infoEl.append(addInfoEl);
@@ -107,6 +116,8 @@ const getData = async (data) => {
   try {
     const response = await fetch(url, options);
     const result = await response.json();
+
+    // console.log(result.results);
 
     localStorage.setItem('url', JSON.stringify(url));
     localStorage.setItem('options', JSON.stringify(options));

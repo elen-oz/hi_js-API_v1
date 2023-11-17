@@ -44,7 +44,7 @@ a:hover {
 .btn-container {
   margin: 0 auto;
   padding: 1rem 0;
-  width: 400px;
+  width: 600px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -58,14 +58,23 @@ a:hover {
   border: none;
   border-radius: 4px;
   padding: 1rem 1.3rem;
+  transition: 0.3s;
 }
 
 .btn:hover {
-  background-color: coral;
+  background-color: #9d9a9a;
 }
 
 .btn:active {
   background-color: goldenrod;
+}
+
+.btn--clear {
+  background-color: #9d9a9a;
+}
+
+.btn--clear:hover {
+  background-color: #d1cdcd;
 }
 
 .card {
