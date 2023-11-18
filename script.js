@@ -175,4 +175,6 @@ seriesBtnEl.addEventListener('click', () => {
 
 clearBtnEl.addEventListener('click', () => {
   contentEl.innerHTML = '';
+  localStorage.removeItem('url');
+  localStorage.removeItem('options');
 });
